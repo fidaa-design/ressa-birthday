@@ -1,0 +1,2785 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Special Birthday Gift for Ressa ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    /* --------------------------------------------------------------------------
+       RESET & VARIABLES
+       -------------------------------------------------------------------------- */
+    :root {
+      --font-title: 'Cinzel', serif;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --pink-soft: #e4c99d;
+      --pink-medium: #c29a68;
+      --pink-deep: #8c6745;
+      --champagne-pink: #f2e3c9;
+      --glow-pink: rgba(210, 174, 119, 0.32);
+      --bg-card: rgba(32, 23, 15, 0.86);
+      --bg-main: #100b07;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: #f4ead9;
+      font-family: var(--font-sans);
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    /* --------------------------------------------------------------------------
+       SPARKLE TRAIL & PARTICLES
+       -------------------------------------------------------------------------- */
+    .sparkle-trail {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--pink-soft);
+      box-shadow: 0 0 10px var(--pink-soft), 0 0 20px #f7efdf;
+      pointer-events: none;
+      z-index: 9999;
+      animation: fadeSparkle 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeSparkle {
+      0% { opacity: 1; transform: scale(1) translateY(0); }
+      100% { opacity: 0; transform: scale(0.2) translateY(15px); }
+    }
+
+    .particle-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .bg-glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.25;
+      animation: floatOrb 18s ease-in-out infinite alternate;
+    }
+
+    .orb-1 { width: 350px; height: 350px; background: #8a6244; top: 10%; left: -50px; }
+    .orb-2 { width: 450px; height: 450px; background: #b88a5a; bottom: 15%; right: -100px; animation-delay: -5s; }
+    .orb-3 { width: 300px; height: 300px; background: #d8b98a; top: 55%; left: 35%; animation-delay: -9s; }
+
+    @keyframes floatOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(40px, 50px) scale(1.15); }
+    }
+
+    .falling-petal {
+      position: absolute;
+      top: -30px;
+      pointer-events: none;
+      animation: fallPetal linear forwards;
+    }
+
+    @keyframes fallPetal {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.8; }
+      90% { opacity: 0.8; }
+      100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+    }
+
+    .butterfly-svg {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      pointer-events: none;
+      animation: flyButterfly 16s ease-in-out infinite alternate;
+    }
+
+    .butterfly-svg .wing {
+      transform-origin: center;
+      animation: flapWings 0.4s ease-in-out infinite alternate;
+    }
+
+    @keyframes flapWings {
+      0% { transform: scaleX(1); }
+      100% { transform: scaleX(0.2); }
+    }
+
+    @keyframes flyButterfly {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(15vw, -10vh) rotate(15deg); }
+      50% { transform: translate(30vw, 5vh) rotate(-10deg); }
+      75% { transform: translate(10vw, 20vh) rotate(20deg); }
+      100% { transform: translate(-5vw, -5vh) rotate(-5deg); }
+    }
+
+    .floating-heart-svg {
+      position: absolute;
+      pointer-events: none;
+      animation: floatUpHeart 5s ease-out forwards;
+    }
+
+    @keyframes floatUpHeart {
+      0% { transform: translateY(0) scale(0.6); opacity: 1; }
+      100% { transform: translateY(-80vh) scale(1.3); opacity: 0; }
+    }
+
+    /* --------------------------------------------------------------------------
+       GRAND ENTRANCE
+       -------------------------------------------------------------------------- */
+    #grandEntranceModal {
+      position: fixed;
+      inset: 0;
+      z-index: 5000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0b0805;
+      overflow: hidden;
+      transition: opacity 1.2s ease, visibility 1.2s ease;
+    }
+
+    #grandEntranceModal.open {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .door-container {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      z-index: 1;
+    }
+
+    .door-panel {
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(135deg, #24180f 0%, #100b07 100%);
+      border: 1px solid rgba(194, 154, 104, 0.2);
+      box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
+      position: relative;
+      transition: transform 1.5s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .door-left { border-right: 1px solid var(--pink-soft); }
+    .door-right { border-left: 1px solid var(--pink-soft); }
+
+    #grandEntranceModal.open .door-left { transform: translateX(-100%); }
+    #grandEntranceModal.open .door-right { transform: translateX(100%); }
+
+    .door-moulding {
+      position: absolute;
+      inset: 20px;
+      border: 1px solid rgba(216, 185, 138, 0.2);
+      border-radius: 8px;
+    }
+
+    /* =========================================
+   PREMIUM ROMANTIC DOOR HANDLE
+   ========================================= */
+
+.door-knob {
+  position: absolute;
+  top: 80%;
+  width: 34px;
+  height: 92px;
+  transform: translateY(-50%);
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f2dfbf 0%,
+      #d8b98a 18%,
+      #8a6244 50%,
+      #d8b98a 82%,
+      #f2dfbf 100%
+    );
+
+  border: 1px solid rgba(255, 235, 240, 0.8);
+
+  box-shadow:
+    0 0 8px rgba(216, 185, 138, 0.55),
+    0 0 20px rgba(194, 154, 104, 0.35),
+    inset 2px 0 5px rgba(255,255,255,0.6),
+    inset -3px 0 7px rgba(100,20,45,0.3);
+
+  z-index: 10;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    filter 0.35s ease;
+}
+
+/* bagian tengah handle */
+.door-knob::before {
+  content: '';
+  position: absolute;
+
+  top: 12px;
+  bottom: 12px;
+  left: 50%;
+
+  width: 5px;
+
+  transform: translateX(-50%);
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.9),
+      rgba(255,190,205,0.4),
+      rgba(255,255,255,0.8)
+    );
+
+  box-shadow:
+    0 0 8px rgba(255, 220, 230, 0.7);
+}
+
+/* permata kecil di tengah */
+.door-knob::after {
+  content: '♡';
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 23px;
+  height: 23px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(45, 8, 22, 0.85);
+
+  border: 1px solid rgba(255, 220, 230, 0.7);
+
+  color: #f2e3c9;
+
+  font-size: 12px;
+
+  text-shadow:
+    0 0 8px #f7efdf,
+    0 0 15px var(--pink-soft);
+
+  box-shadow:
+    0 0 8px rgba(216, 185, 138, 0.5),
+    inset 0 0 8px rgba(216, 185, 138, 0.2);
+}
+
+/* posisi gagang kiri */
+.door-left .door-knob {
+  right: 37px;
+}
+
+/* posisi gagang kanan */
+.door-right .door-knob {
+  left: 37px;
+}
+
+/* efek ketika diarahkan mouse */
+.door-knob:hover {
+  filter: brightness(1.15);
+
+  box-shadow:
+    0 0 12px rgba(255, 220, 230, 0.8),
+    0 0 30px rgba(194, 154, 104, 0.55),
+    inset 2px 0 6px rgba(255,255,255,0.8),
+    inset -3px 0 8px rgba(100,20,45,0.25);
+}
+
+/* kilau lembut */
+.door-knob {
+  animation: handleGlow 3s ease-in-out infinite;
+}
+
+@keyframes handleGlow {
+  0%, 100% {
+    filter: brightness(0.95);
+  }
+
+  50% {
+    filter: brightness(1.12);
+  }
+}
+    .entrance-center-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 40px;
+      background: rgba(18, 5, 11, 0.85);
+      border: 1px solid var(--pink-soft);
+      border-radius: 24px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 60px var(--glow-pink);
+      max-width: 90%;
+      width: 440px;
+    }
+
+    .entrance-badge {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--pink-medium);
+      margin-bottom: 12px;
+    }
+
+    .entrance-title {
+      font-family: var(--font-title);
+      font-size: 2.8rem;
+      color: var(--pink-soft);
+      text-shadow: 0 0 20px var(--glow-pink);
+      margin-bottom: 8px;
+    }
+
+    .entrance-subtitle {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--champagne-pink);
+      margin-bottom: 28px;
+    }
+
+    .btn-entrance {
+      background: linear-gradient(135deg, #8a6244, #b88a5a);
+      color: #100b07;
+      border: none;
+      padding: 14px 36px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 25px var(--glow-pink);
+      transition: all 0.3s ease;
+    }
+
+    .btn-entrance:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 0 35px rgba(194, 154, 104, 0.8);
+    }
+
+    /* --------------------------------------------------------------------------
+       MUSIC WIDGET
+       -------------------------------------------------------------------------- */
+    .music-player-widget {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(25, 10, 18, 0.85);
+      border: 1px solid var(--pink-soft);
+      padding: 10px 18px;
+      border-radius: 50px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+
+    .music-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: none;
+      background: var(--pink-soft);
+      color: #100b07;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.2s ease;
+    }
+
+    .music-btn:hover { transform: scale(1.1); }
+
+    .music-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .music-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--pink-soft);
+    }
+
+    .music-sub {
+      font-size: 0.7rem;
+      color: var(--pink-medium);
+    }
+
+    /* --------------------------------------------------------------------------
+       MAIN LAYOUT & SECTIONS
+       -------------------------------------------------------------------------- */
+    .main-wrapper {
+      position: relative;
+      z-index: 2;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px 100px 20px;
+    }
+
+    section {
+      margin-bottom: 120px;
+    }
+
+    .section-title {
+      font-family: var(--font-title);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      text-align: center;
+      color: var(--pink-soft);
+      text-shadow: 0 0 25px var(--glow-pink);
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-style: italic;
+      text-align: center;
+      color: var(--pink-medium);
+      margin-bottom: 45px;
+    }
+
+    .transition-zone {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 60px 0;
+    }
+
+    .transition-vine {
+      width: 120px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--pink-soft), transparent);
+      position: relative;
+    }
+
+    .transition-flower {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--pink-soft);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 10px var(--pink-soft);
+    }
+
+    /* 1. HERO SECTION */
+    .hero-section {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-top: 40px;
+    }
+
+    .hero-badge {
+      font-size: 0.9rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--pink-medium);
+      margin-bottom: 16px;
+    }
+
+    .hero-name {
+      font-family: var(--font-title);
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      color: var(--pink-soft);
+      text-shadow: 0 0 40px var(--glow-pink);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero-date {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+      color: var(--champagne-pink);
+    }
+
+    /* 2. LETTER & REASONS */
+    .letter-card {
+      background: var(--bg-card);
+      border: 1px solid var(--pink-soft);
+      border-radius: 24px;
+      padding: clamp(25px, 5vw, 50px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+      position: relative;
+    }
+
+    .letter-text {
+      font-family: var(--font-serif);
+      font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+      line-height: 1.9;
+      color: #f4ead9;
+      white-space: pre-line;
+    }
+
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .reason-item {
+      background: rgba(35, 12, 25, 0.6);
+      border: 1px solid rgba(194, 154, 104, 0.25);
+      border-radius: 16px;
+      padding: 22px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .reason-item:hover {
+      transform: translateY(-4px);
+      border-color: var(--pink-soft);
+    }
+
+    .reason-num {
+      font-family: var(--font-title);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--pink-soft);
+    }
+
+    /* 3. LOVE GARDEN ANIMATION */
+
+.love-garden {
+  position: relative;
+  min-height: 680px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 50px 20px;
+}
+
+/* Background glow */
+.love-garden::before {
+  content: '';
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(194, 154, 104, 0.16) 0%,
+    rgba(140, 103, 69, 0.08) 40%,
+    transparent 70%
+  );
+  filter: blur(10px);
+  animation: loveAura 4s ease-in-out infinite;
+}
+
+/* Lingkaran besar */
+.love-orbit {
+  position: absolute;
+  width: 430px;
+  height: 430px;
+  border: 1px solid rgba(216, 185, 138, 0.22);
+  border-radius: 50%;
+  animation: orbitRotate 18s linear infinite;
+}
+
+.love-orbit::before,
+.love-orbit::after {
+  content: '♡';
+  position: absolute;
+  color: var(--pink-soft);
+  font-size: 22px;
+  text-shadow: 0 0 18px var(--pink-soft);
+}
+
+.love-orbit::before {
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.love-orbit::after {
+  bottom: -12px;
+  right: 20%;
+}
+
+/* Orbit kedua */
+.love-orbit-small {
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  border: 1px dashed rgba(194, 154, 104, 0.2);
+  border-radius: 50%;
+  animation: orbitRotateReverse 14s linear infinite;
+}
+
+/* Center */
+.love-center {
+  position: relative;
+  z-index: 5;
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(40, 10, 25, 0.95),
+      rgba(18, 5, 11, 0.9)
+    );
+  border: 1px solid var(--pink-soft);
+  box-shadow:
+    0 0 30px rgba(194, 154, 104, 0.3),
+    0 0 80px rgba(140, 103, 69, 0.2),
+    inset 0 0 35px rgba(194, 154, 104, 0.08);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  animation: centerFloat 4s ease-in-out infinite;
+}
+
+/* Heart utama */
+.love-main-heart {
+  font-size: 92px;
+  color: var(--pink-soft);
+  text-shadow:
+    0 0 10px var(--pink-soft),
+    0 0 25px var(--pink-medium),
+    0 0 55px rgba(140, 103, 69, 0.8);
+
+  animation: heartPulse 1.6s ease-in-out infinite;
+}
+
+/* Hati kecil yang mengelilingi */
+.love-mini {
+  position: absolute;
+  z-index: 4;
+  color: var(--pink-soft);
+  text-shadow: 0 0 15px var(--pink-soft);
+  animation: miniFloat 3.5s ease-in-out infinite;
+}
+
+.love-mini-1 {
+  top: 17%;
+  left: 25%;
+  font-size: 20px;
+  animation-delay: 0s;
+}
+
+.love-mini-2 {
+  top: 23%;
+  right: 20%;
+  font-size: 16px;
+  animation-delay: 0.8s;
+}
+
+.love-mini-3 {
+  bottom: 25%;
+  left: 18%;
+  font-size: 17px;
+  animation-delay: 1.4s;
+}
+
+.love-mini-4 {
+  bottom: 18%;
+  right: 25%;
+  font-size: 22px;
+  animation-delay: 2s;
+}
+
+/* Hati yang naik ke atas */
+.rising-heart {
+  position: absolute;
+  bottom: 10%;
+  color: var(--pink-soft);
+  font-size: 20px;
+  opacity: 0;
+  pointer-events: none;
+  animation: riseHeart 5s ease-in-out infinite;
+}
+
+.rising-heart-1 {
+  left: 25%;
+  animation-delay: 0s;
+}
+
+.rising-heart-2 {
+  left: 42%;
+  animation-delay: 1.2s;
+}
+
+.rising-heart-3 {
+  right: 35%;
+  animation-delay: 2.4s;
+}
+
+.rising-heart-4 {
+  right: 22%;
+  animation-delay: 3.6s;
+}
+
+/* Bintang kecil */
+.love-star {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--champagne-pink);
+  box-shadow: 0 0 12px var(--pink-soft);
+  animation: starTwinkle 2s ease-in-out infinite;
+}
+
+.love-star-1 {
+  top: 22%;
+  left: 18%;
+}
+
+.love-star-2 {
+  top: 35%;
+  right: 15%;
+  animation-delay: 0.5s;
+}
+
+.love-star-3 {
+  bottom: 28%;
+  left: 28%;
+  animation-delay: 1s;
+}
+
+.love-star-4 {
+  bottom: 20%;
+  right: 28%;
+  animation-delay: 1.5s;
+}
+
+/* Pesan kecil */
+.love-message {
+  position: relative;
+  z-index: 6;
+  margin-top: 55px;
+  text-align: center;
+  max-width: 600px;
+}
+
+.love-message-title {
+  font-family: var(--font-title);
+  color: var(--pink-soft);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  text-shadow: 0 0 20px var(--glow-pink);
+  margin-bottom: 10px;
+}
+
+.love-message-text {
+  font-family: var(--font-serif);
+  color: var(--champagne-pink);
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+/* 3 kartu kecil */
+.love-notes {
+  position: relative;
+  z-index: 6;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.love-note {
+  min-width: 150px;
+  padding: 12px 20px;
+  border: 1px solid rgba(216, 185, 138, 0.25);
+  border-radius: 50px;
+  background: rgba(25, 10, 18, 0.55);
+  color: var(--pink-soft);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.love-note:hover {
+  transform: translateY(-5px);
+  border-color: var(--pink-soft);
+}
+.love-center {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.love-center:hover {
+  transform: scale(1.05);
+}
+
+.love-center:active {
+  transform: scale(0.92);
+}
+
+.love-pop-message {
+  position: relative;
+  z-index: 20;
+  min-height: 35px;
+  margin-top: 20px;
+  padding: 0 20px;
+  color: var(--pink-soft);
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.5s ease;
+}
+
+.love-pop-message.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.love-note {
+  cursor: pointer;
+  user-select: none;
+}
+
+.love-note:active {
+  transform: scale(0.94);
+}
+
+.click-heart {
+  position: fixed;
+  z-index: 9998;
+  pointer-events: none;
+  color: var(--pink-soft);
+  font-size: 20px;
+  text-shadow:
+    0 0 10px var(--pink-soft),
+    0 0 25px var(--pink-medium);
+  animation: clickHeartBurst 1.5s ease-out forwards;
+}
+
+@keyframes clickHeartBurst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(0.5) rotate(0deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate(
+        var(--move-x),
+        var(--move-y)
+      )
+      scale(1.4)
+      rotate(25deg);
+  }
+}
+/* Animasi aura */
+@keyframes loveAura {
+  0%, 100% {
+    transform: scale(0.85);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+}
+
+/* Rotasi orbit */
+@keyframes orbitRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitRotateReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* Heart berdenyut */
+@keyframes heartPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  15% {
+    transform: scale(1.15);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+  45% {
+    transform: scale(1.08);
+  }
+
+  60% {
+    transform: scale(1);
+  }
+}
+
+/* Center naik turun */
+@keyframes centerFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Hati kecil */
+@keyframes miniFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translateY(-15px) scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Hati naik */
+@keyframes riseHeart {
+  0% {
+    transform: translateY(0) scale(0.5) rotate(-10deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.8;
+  }
+
+  70% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(-330px) scale(1.2) rotate(15deg);
+    opacity: 0;
+  }
+}
+
+/* Bintang */
+@keyframes starTwinkle {
+  0%, 100% {
+    transform: scale(0.5);
+    opacity: 0.25;
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
+/* HP */
+@media (max-width: 600px) {
+
+  .love-garden {
+    min-height: 620px;
+    padding: 40px 15px;
+  }
+
+  .love-orbit {
+    width: 300px;
+    height: 300px;
+  }
+
+  .love-orbit-small {
+    width: 235px;
+    height: 235px;
+  }
+
+  .love-center {
+    width: 175px;
+    height: 175px;
+  }
+
+  .love-main-heart {
+    font-size: 70px;
+  }
+
+  .love-message {
+    margin-top: 45px;
+  }
+
+  .love-message-text {
+    font-size: 1.1rem;
+  }
+
+  .love-notes {
+    gap: 10px;
+  }
+
+  .love-note {
+    min-width: 130px;
+    padding: 10px 15px;
+  }
+}
+
+    /* 4. BIRTHDAY CAKE */
+
+    /* 4. BIRTHDAY CAKE */
+    .cake-section-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .birthday-cake {
+      position: relative;
+      width: 200px;
+      height: 180px;
+      margin-bottom: 35px;
+    }
+
+    .cake-tier {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 12px;
+      box-shadow: inset 0 -8px 0 rgba(0,0,0,0.2);
+    }
+
+    .cake-tier-bottom {
+  bottom: 0;
+  width: 180px;
+  height: 70px;
+
+  background: linear-gradient(
+    135deg,
+    #8a6244 0%,
+    #5c3d2a 55%,
+    #2b1b12 100%
+  );
+
+  box-shadow:
+    inset 0 -8px 0 rgba(120, 0, 20, 0.2),
+    0 8px 25px rgba(214, 40, 57, 0.35);
+}
+
+    .cake-tier-top {
+  bottom: 65px;
+  width: 130px;
+  height: 60px;
+
+  background: linear-gradient(
+    135deg,
+    #b88a5a 0%,
+    #8a6244 55%,
+    #5c3d2a 100%
+  );
+
+  box-shadow:
+    inset 0 -8px 0 rgba(120, 0, 20, 0.15),
+    0 6px 20px rgba(214, 40, 57, 0.3);
+}
+
+    .cake-plate {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 220px;
+  height: 18px;
+
+  background: linear-gradient(
+    180deg,
+    #f2e3c9,
+    #d8b98a
+  );
+
+  border-radius: 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
+
+  box-shadow:
+    0 5px 20px rgba(0,0,0,0.5),
+    0 0 18px rgba(255, 209, 102, 0.3);
+}
+
+    .cake-candle {
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 40px;
+      background: repeating-linear-gradient(
+  45deg,
+  #f2e3c9,
+  #f2e3c9 5px,
+  #8a6244 5px,
+  #8a6244 10px
+);
+      border-radius: 4px;
+    }
+
+    .candle-flame {
+      position: absolute;
+      top: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 16px;
+      height: 24px;
+      background: radial-gradient(ellipse at bottom, #f7efdf 0%, #ffca36 50%, #ff5e00 100%);
+      border-radius: 50% 50% 20% 20%;
+      box-shadow: 0 0 20px #ffca36;
+      animation: flicker 1s ease-in-out infinite alternate;
+      transition: all 0.5s ease;
+    }
+
+    .candle-flame.out {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    @keyframes flicker {
+      0% { transform: translateX(-50%) scale(1) rotate(-2deg); }
+      100% { transform: translateX(-50%) scale(1.1) rotate(2deg); }
+    }
+
+    .smoke-curl {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 25px;
+      background: rgba(200, 200, 200, 0.4);
+      border-radius: 10px;
+      filter: blur(4px);
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .btn-blow-candle {
+      background: linear-gradient(135deg, #b88a5a, #8a6244);
+      color: #100b07;
+      border: none;
+      padding: 12px 32px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 20px var(--glow-pink);
+    }
+
+    .wish-made-text {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: var(--pink-soft);
+      text-shadow: 0 0 15px var(--glow-pink);
+      animation: fadeInWish 1s ease forwards;
+    }
+
+    /* 5. MEMORIES GALLERY (15 PHOTOS) */
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px 24px;
+  align-items: start;
+  padding: 20px 10px 40px;
+}
+
+/* POLAROID */
+.memory-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 12px 12px 52px;
+
+  background: #f2e6d2;
+
+  border: none;
+  border-radius: 3px;
+
+  overflow: visible;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.28),
+    0 3px 8px rgba(194, 154, 104, 0.12);
+
+  transition:
+    transform 0.45s cubic-bezier(.2,.8,.2,1),
+    box-shadow 0.45s ease;
+
+  break-inside: avoid;
+}
+
+/* FOTO */
+.memory-card img {
+  width: 100%;
+  height: auto;
+
+  display: block;
+
+  object-fit: contain;
+
+  background: #e8d7bd;
+
+  border-radius: 1px;
+
+  transition:
+    transform 0.45s ease,
+    filter 0.45s ease;
+}
+
+    /* Hiasan kecil */
+.memory-card::before {
+  content: '♡';
+
+  position: absolute;
+
+  top: 18px;
+  right: 18px;
+
+  z-index: 3;
+
+  color: rgba(181, 91, 119, 0.7);
+
+  font-size: 14px;
+
+  opacity: 0;
+
+  transform: scale(0.5);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* POLAROID MIRING BERGANTIAN */
+.memory-card:nth-child(1) {
+  transform: rotate(-2deg);
+}
+
+.memory-card:nth-child(2) {
+  transform: rotate(1.5deg);
+}
+
+.memory-card:nth-child(3) {
+  transform: rotate(-1deg);
+}
+
+.memory-card:nth-child(4) {
+  transform: rotate(2deg);
+}
+
+.memory-card:nth-child(5) {
+  transform: rotate(1.5deg);
+}
+
+.memory-card:nth-child(6) {
+  transform: rotate(-2deg);
+}
+
+.memory-card:nth-child(7) {
+  transform: rotate(2deg);
+}
+
+.memory-card:nth-child(8) {
+  transform: rotate(-1.5deg);
+}
+
+/* HOVER */
+.memory-card:hover {
+  z-index: 10;
+
+  transform:
+    translateY(-12px)
+    rotate(0deg)
+    scale(1.035);
+
+  box-shadow:
+    0 22px 45px rgba(0, 0, 0, 0.35),
+    0 0 25px rgba(194, 154, 104, 0.25);
+}
+
+.memory-card:hover img {
+  transform: scale(1.015);
+
+  filter:
+    brightness(1.04)
+    saturate(1.04);
+}
+
+.memory-card:hover::before {
+  opacity: 1;
+
+  transform:
+    scale(1)
+    rotate(10deg);
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+
+  .memory-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+}
+
+/* =========================================
+   HP
+   ========================================= */
+
+@media (max-width: 600px) {
+
+  .memory-grid {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+
+    padding:
+      15px
+      18px
+      35px;
+  }
+
+  .memory-card {
+    padding:
+      10px
+      10px
+      52px;
+
+    max-width: 380px;
+
+    margin:
+      0 auto;
+  }
+
+  .memory-card:nth-child(1),
+  .memory-card:nth-child(2),
+  .memory-card:nth-child(3),
+  .memory-card:nth-child(4),
+  .memory-card:nth-child(5),
+  .memory-card:nth-child(6),
+  .memory-card:nth-child(7),
+  .memory-card:nth-child(8) {
+    transform: rotate(0deg);
+  }
+
+  .memory-card:hover {
+    transform:
+      translateY(-8px)
+      scale(1.02);
+  }
+
+  .memory-caption {
+    left: 10px;
+    right: 10px;
+
+    height: 52px;
+
+    font-size: 0.9rem;
+  }
+
+}
+
+    /* 6. WISH JAR */
+    .wish-jar-wrapper {
+      text-align: center;
+      background: var(--bg-card);
+      border: 1px solid rgba(194, 154, 104, 0.3);
+      padding: 30px;
+      border-radius: 20px;
+    }
+
+    .wish-jar-svg {
+      width: 110px;
+      cursor: pointer;
+      filter: drop-shadow(0 0 15px var(--glow-pink));
+      transition: transform 0.3s ease;
+    }
+
+    .wish-jar-svg:hover { transform: scale(1.08) rotate(3deg); }
+
+    /* 7. LOVE SURPRISE */
+    .love-surprise-container {
+      text-align: center;
+    }
+
+    .interactive-heart-trigger {
+      display: inline-block;
+      cursor: pointer;
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      margin-bottom: 15px;
+    }
+
+    .giant-heart-svg {
+      width: 90px;
+      height: 90px;
+      fill: url(#heartGradient);
+      filter: drop-shadow(0 0 20px var(--pink-medium));
+    }
+
+    /* 8. CONSTELLATION */
+    .constellation-box {
+      width: 100%;
+      height: 320px;
+      background: rgba(10, 2, 7, 0.8);
+      border: 1px dashed var(--pink-soft);
+      border-radius: 20px;
+      position: relative;
+      cursor: crosshair;
+      overflow: hidden;
+    }
+
+    .star-point {
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      background: #f7efdf;
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--pink-soft);
+    }
+
+    /* 9. AFFECTION GAUGE */
+    .gauge-container {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .gauge-bar-outer {
+      width: 100%;
+      height: 24px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid var(--pink-soft);
+      border-radius: 30px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      padding: 3px;
+    }
+
+    .gauge-bar-inner {
+      width: 20%;
+      height: 100%;
+      background: linear-gradient(90deg, #b88a5a, #8a6244);
+      border-radius: 20px;
+      transition: width 0.4s ease;
+    }
+
+    .btn-fill-gauge {
+      background: transparent;
+      border: 1px solid var(--pink-soft);
+      color: var(--pink-soft);
+      padding: 10px 28px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-fill-gauge:hover {
+      background: var(--pink-soft);
+      color: #100b07;
+    }
+
+    /* 10. SECRET GIFT */
+    .secret-gift-box {
+      text-align: center;
+      background: var(--bg-card);
+      border: 2px dashed var(--pink-soft);
+      border-radius: 24px;
+      padding: 40px 20px;
+      box-shadow: 0 0 40px var(--glow-pink);
+    }
+
+
+    /* KADO INTERAKTIF UNTUK ZAHH */
+    .gift-opening-stage { display:flex; flex-direction:column; align-items:center; gap:18px; padding:18px 12px 8px; }
+    .gift-open-hint { color:var(--champagne-pink); letter-spacing:.4px; animation:giftHint 1.5s ease-in-out infinite; }
+    .interactive-gift { position:relative; width:170px; height:150px; border:0; background:transparent; cursor:pointer; perspective:700px; filter:drop-shadow(0 15px 18px rgba(0,0,0,.3)); transition:transform .25s; }
+    .interactive-gift:hover { transform:translateY(-5px) scale(1.03); }
+    .gift-base { position:absolute; width:142px; height:88px; left:14px; bottom:8px; border-radius:7px 7px 13px 13px; background:linear-gradient(135deg,#b77b45,#f1d29a 45%,#9d5d32); border:1px solid #f8dfac; }
+    .gift-base:before { content:""; position:absolute; left:55px; top:0; width:30px; height:100%; background:linear-gradient(90deg,#f8e5b7,#f2dfbf,#b88a5a); }
+    .gift-lid { position:absolute; z-index:3; width:160px; height:31px; left:5px; bottom:88px; border-radius:7px; background:linear-gradient(135deg,#e8c48a,#f2dfbf 48%,#8c6745); border:1px solid #f2dfbf; transform-origin:12% 100%; transition:transform .85s cubic-bezier(.2,.8,.2,1),opacity .6s; }
+    .gift-bow { position:absolute; z-index:4; left:65px; bottom:112px; width:40px; height:24px; }
+    .gift-bow:before,.gift-bow:after { content:""; position:absolute; top:0; width:22px; height:17px; border:5px solid #a52f55; border-radius:70% 70% 20% 70%; background:#e56b91; }
+    .gift-bow:before { left:-2px; transform:rotate(25deg); } .gift-bow:after { right:-2px; transform:scaleX(-1) rotate(25deg); }
+    .gift-bow i { position:absolute; z-index:2; left:15px; top:8px; width:12px; height:12px; border-radius:50%; background:#e7c78f; }
+    .gift-spark { position:absolute; z-index:5; font-size:25px; opacity:0; transform:translateY(15px) scale(.5); }
+    .gift-spark.one { left:8px; top:2px; } .gift-spark.two { right:3px; top:12px; } .gift-spark.three { left:70px; top:-20px; }
+    .interactive-gift.opened .gift-lid { transform:translate(-15px,-55px) rotate(-28deg); }
+    .interactive-gift.opened .gift-bow { transform:translate(-15px,-55px) rotate(-28deg); transition:transform .85s; }
+    .interactive-gift.opened .gift-spark { animation:giftSparkle .8s ease-out forwards; }
+    .interactive-gift.opened .gift-spark.two { animation-delay:.12s; } .interactive-gift.opened .gift-spark.three { animation-delay:.22s; }
+    .gift-surprise-content { display:none; width:min(720px,100%); margin:20px auto 0; animation:giftReveal .8s ease both; }
+    .gift-surprise-content.show { display:block; }
+    .gift-flower-burst { font-size:clamp(1.8rem,5vw,2.8rem); letter-spacing:7px; margin:4px 0 16px; animation:flowerFloat 2.8s ease-in-out infinite; }
+    .gift-photo-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin:18px auto; max-width:570px; }
+    .gift-photo-grid img { width:100%; aspect-ratio:3/4; object-fit:cover; border-radius:14px; border:1px solid #d9b77e; box-shadow:0 7px 20px rgba(0,0,0,.28); transition:transform .3s,box-shadow .3s; }
+    .gift-photo-grid img:hover { transform:translateY(-5px) rotate(-1deg); box-shadow:0 12px 28px rgba(226,174,120,.28); }
+    .gift-note { color:var(--champagne-pink); font-family:var(--font-serif); line-height:1.8; }
+    @keyframes giftHint { 0%,100%{opacity:.65;transform:translateY(0)} 50%{opacity:1;transform:translateY(-4px)} }
+    @keyframes giftSparkle { 0%{opacity:0;transform:translateY(15px) scale(.4) rotate(-20deg)} 65%{opacity:1;transform:translateY(-24px) scale(1.2) rotate(12deg)} 100%{opacity:1;transform:translateY(-20px) scale(1)} }
+    @keyframes giftReveal { from{opacity:0;transform:translateY(20px) scale(.96)} to{opacity:1;transform:translateY(0) scale(1)} }
+    @keyframes flowerFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+    @media(max-width:520px){ .gift-photo-grid{gap:7px}.gift-photo-grid img{border-radius:9px}.interactive-gift{transform:scale(.92)} }
+
+    /* 11. FINAL SURPRISE */
+    .final-surprise-section {
+      text-align: center;
+    }
+
+    .btn-final-surprise {
+      background: linear-gradient(135deg, #8a6244, #b88a5a);
+      color: #100b07;
+      border: none;
+      padding: 18px 45px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 35px var(--glow-pink);
+      transition: transform 0.3s ease;
+    }
+
+    .btn-final-surprise:hover {
+      transform: scale(1.05);
+    }
+
+    .final-birthday-heading {
+      font-family: var(--font-title);
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      color: var(--pink-soft);
+      text-shadow: 0 0 30px var(--glow-pink);
+      margin-top: 35px;
+      animation: fadeInWish 1.5s ease forwards;
+    }
+
+    /* --------------------------------------------------------------------------
+       MODALS
+       -------------------------------------------------------------------------- */
+    #lightboxModal, #secretModal {
+      position: fixed;
+      inset: 0;
+      z-index: 6000;
+      background: rgba(18, 5, 11, 0.95);
+      backdrop-filter: blur(16px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    #lightboxModal.active, #secretModal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 75vh;
+      border-radius: 16px;
+      border: 1px solid var(--pink-soft);
+      box-shadow: 0 10px 45px rgba(0,0,0,0.85);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 25px;
+      right: 35px;
+      font-size: 2.8rem;
+      color: var(--pink-soft);
+      cursor: pointer;
+    }
+
+    .secret-content {
+  background: var(--bg-card);
+  border: 2px solid var(--pink-soft);
+  border-radius: 24px;
+  padding: 45px 30px;
+  max-width: 580px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 50px var(--glow-pink);
+
+  /* TAMBAHKAN INI */
+  max-height: 80vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .secret-content {
+    width: 88%;
+    max-height: 82vh;
+    padding: 30px 20px;
+  }
+
+  .secret-content p {
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .secret-content button {
+    margin-top: 20px !important;
+    margin-bottom: 5px;
+  }
+}
+
+    @keyframes fadeInWish {
+      0% { opacity: 0; transform: translateY(12px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+
+    /* COUNTDOWN ULANG TAHUN */
+    .countdown-card {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 28px 22px;
+      text-align: center;
+      background: var(--bg-card);
+      border: 1px solid var(--pink-soft);
+      border-radius: 22px;
+      box-shadow: 0 0 35px rgba(194, 154, 104, 0.16);
+    }
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .countdown-unit {
+      padding: 18px 8px;
+      background: rgba(194, 154, 104, 0.08);
+      border: 1px solid rgba(194, 154, 104, 0.3);
+      border-radius: 14px;
+    }
+    .countdown-number {
+      display: block;
+      font-family: var(--font-title);
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      color: var(--pink-soft);
+    }
+    .countdown-label { color: var(--champagne-pink); font-size: .8rem; }
+    .timeline-list {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+      padding-left: 30px;
+    }
+    .timeline-list::before {
+      content: "";
+      position: absolute;
+      left: 9px; top: 8px; bottom: 8px;
+      width: 2px;
+      background: linear-gradient(var(--pink-soft), var(--pink-deep));
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 18px;
+      padding: 20px 22px;
+      background: var(--bg-card);
+      border: 1px solid rgba(194, 154, 104, .28);
+      border-radius: 16px;
+    }
+    .timeline-item::before {
+      content: "♡";
+      position: absolute;
+      left: -30px; top: 19px;
+      color: var(--pink-soft);
+      font-size: 1.1rem;
+    }
+    .timeline-item p { font-family: var(--font-serif); font-size: 1.25rem; color: var(--champagne-pink); }
+    @media (max-width: 480px) {
+      .countdown-grid { gap: 7px; }
+      .countdown-unit { padding: 14px 4px; }
+      .countdown-label { font-size: .68rem; }
+    }
+
+  
+    /* Interactive scroll letter */
+    .letter-scroll-card {
+      padding: clamp(16px, 3vw, 28px);
+      background: linear-gradient(145deg, rgba(77, 39, 47, .94), rgba(39, 24, 31, .96));
+      border: 1px solid rgba(232, 190, 166, .42);
+      overflow: hidden;
+    }
+    .scroll-letter-trigger {
+      width: 100%; display: flex; align-items: center; gap: 16px; text-align: left;
+      border: 1px solid rgba(236, 198, 167, .6); border-radius: 18px; padding: 18px 20px;
+      color: var(--pearl-white, #f4ead9); cursor: pointer;
+      background: linear-gradient(120deg, rgba(139, 77, 82, .7), rgba(84, 48, 56, .82));
+      box-shadow: 0 8px 25px rgba(0,0,0,.22); transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .scroll-letter-trigger:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,0,0,.3); }
+    .scroll-icon { display:grid; place-items:center; flex:0 0 48px; height:48px; border-radius:50%; background:rgba(245,216,190,.15); font-size:1.55rem; color:#f5d8be; }
+    .scroll-trigger-copy { display:flex; flex-direction:column; gap:5px; flex:1; }
+    .scroll-trigger-copy strong { font-family:var(--font-serif, Georgia, serif); font-size:1.15rem; color:#f2dfbf; }
+    .scroll-trigger-copy small { color:#e5c9c1; font-size:.82rem; }
+    .scroll-trigger-arrow { font-size:1.7rem; color:#f5d8be; transition:transform .35s ease; }
+    .scroll-letter-trigger[aria-expanded="true"] .scroll-trigger-arrow { transform:rotate(180deg); }
+    .paper-roll { max-height:0; opacity:0; overflow:hidden; transform:translateY(-10px) scaleY(.92); transform-origin:top; transition:max-height 1s ease, opacity .45s ease, transform .65s ease; }
+    .paper-roll.is-open { max-height:2600px; opacity:1; transform:translateY(0) scaleY(1); margin-top:18px; }
+    .paper-roll-edge { position:relative; z-index:2; height:19px; border-radius:50%; border:1px solid #b88d67; background:linear-gradient(180deg,#f7e7ca,#d9b78d 48%,#f3dfbd); box-shadow:0 4px 8px rgba(0,0,0,.22); }
+    .paper-roll-top { margin-bottom:-7px; }
+    .paper-roll-bottom { margin-top:-7px; }
+    .paper-sheet { position:relative; padding:clamp(24px,5vw,46px) clamp(20px,5vw,48px); background:repeating-linear-gradient(0deg,rgba(129,83,50,.045) 0,rgba(129,83,50,.045) 1px,transparent 1px,transparent 29px),linear-gradient(135deg,#f2e3c9,#f3dfbd 55%,#f9e9ce); color:#573b36; border-left:5px solid #d4ad7f; border-right:5px solid #d4ad7f; box-shadow:inset 0 0 35px rgba(125,78,46,.12),0 10px 24px rgba(0,0,0,.22); }
+    .paper-sheet::before { content:'♡'; position:absolute; top:12px; right:18px; color:rgba(151,91,89,.42); font-size:1.5rem; }
+    .paper-sheet .letter-text { color:#573b36; font-family:var(--font-serif, Georgia, serif); font-size:1rem; line-height:1.95; white-space:pre-line; text-align:left; }
+    @media(max-width:600px) { .scroll-letter-trigger { padding:14px; gap:11px; } .scroll-icon { flex-basis:40px;height:40px; } .scroll-trigger-copy strong {font-size:1rem;} .scroll-trigger-copy small {font-size:.72rem;} .paper-roll.is-open {max-height:3200px;} }
+
+
+    /* Flip cards: playful, warm, and clearly friendship-themed */
+    .flip-reasons { grid-template-columns: repeat(auto-fit, minmax(205px, 1fr)); gap: 18px; }
+    .reason-flip { appearance:none; border:0; background:transparent; padding:0; width:100%; min-height:205px; cursor:pointer; perspective:1000px; text-align:center; color:inherit; }
+    .reason-flip-inner { position:relative; display:block; width:100%; min-height:205px; height:100%; transform-style:preserve-3d; transition:transform .7s cubic-bezier(.2,.75,.25,1); }
+    .reason-flip.is-flipped .reason-flip-inner { transform:rotateY(180deg); }
+    .reason-face { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; padding:22px 18px; border-radius:20px; backface-visibility:hidden; -webkit-backface-visibility:hidden; border:1px solid rgba(236,198,167,.55); box-shadow:0 12px 28px rgba(0,0,0,.25); overflow:hidden; }
+    .reason-front { background:radial-gradient(circle at 15% 15%,rgba(255,225,194,.17),transparent 38%),linear-gradient(145deg,#59363d,#291b27); }
+    .reason-front::before,.reason-back::before { content:'✦'; position:absolute; right:15px; top:9px; color:rgba(245,216,190,.7); font-size:1.1rem; }
+    .reason-front .reason-num,.reason-back .reason-num { display:grid; place-items:center; width:46px; height:46px; border:1px solid rgba(245,216,190,.65); border-radius:50%; color:#f5d8be; font-family:var(--font-title); font-size:1.2rem; }
+    .reason-front-title { color:#f2dfbf; font-family:var(--font-serif); font-size:1.12rem; }
+    .reason-hint { font-size:.75rem; letter-spacing:.5px; color:#e3c4b8; }
+    .reason-back { transform:rotateY(180deg); background:linear-gradient(145deg,#f8e5cb,#e6c4a2); border-color:#f5d8be; color:#54363b; }
+    .reason-back .reason-num { color:#74434b; border-color:rgba(116,67,75,.45); }
+    .reason-copy { font-family:var(--font-serif); font-size:1rem; line-height:1.65; color:#54363b; }
+    .reason-flip:focus-visible { outline:3px solid #f5d8be; outline-offset:5px; border-radius:20px; }
+
+    /* Premium friendship timeline */
+    #timelineSection { position:relative; padding:clamp(42px,7vw,88px) clamp(16px,4vw,34px); margin:30px auto; max-width:1050px; border:1px solid rgba(232,190,166,.24); border-radius:30px; background:radial-gradient(ellipse at top,rgba(213,166,137,.1),transparent 58%),linear-gradient(145deg,rgba(38,24,32,.78),rgba(24,17,26,.9)); box-shadow:0 25px 70px rgba(0,0,0,.22); overflow:hidden; }
+    #timelineSection::before,#timelineSection::after { content:'✦  ·  ✧  ·  ✦'; position:absolute; color:rgba(245,216,190,.5); letter-spacing:12px; font-size:.85rem; }
+    #timelineSection::before { top:20px; left:25px; } #timelineSection::after { bottom:20px; right:25px; }
+    .timeline-list { max-width:780px; padding-left:0; margin:42px auto 12px; }
+    .timeline-list::before { left:27px; top:12px; bottom:12px; width:2px; background:linear-gradient(180deg,transparent,#e5c29d 12%,#b77e88 55%,#e5c29d 88%,transparent); }
+    .timeline-item { display:flex; align-items:center; gap:18px; min-height:104px; margin:0 0 18px; padding:18px 22px 18px 14px; border:1px solid rgba(232,190,166,.28); border-radius:18px; background:linear-gradient(115deg,rgba(83,53,61,.78),rgba(36,25,34,.92)); box-shadow:0 10px 24px rgba(0,0,0,.18); transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease; }
+    .timeline-item:hover { transform:translateX(5px); border-color:rgba(245,216,190,.72); box-shadow:0 14px 30px rgba(0,0,0,.26); }
+    .timeline-item::before { content:none; }
+    .timeline-number { flex:0 0 54px; display:grid; place-items:center; width:54px; height:54px; border-radius:50%; background:linear-gradient(145deg,#f4d7b5,#b87e85); border:3px solid rgba(255,240,220,.78); color:#38232d; font-weight:800; font-size:.9rem; box-shadow:0 0 0 6px rgba(232,190,166,.08); }
+    .timeline-marker { color:#f5d8be; font-size:1.1rem; }
+    .timeline-content small { color:#d9b9a0; letter-spacing:2px; font-size:.64rem; }
+    .timeline-content p { margin:5px 0 0; font-family:var(--font-serif); font-size:clamp(1rem,2.5vw,1.22rem); line-height:1.55; color:#f2dfbf; }
+    @media(max-width:560px) { .flip-reasons { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; } .reason-flip,.reason-flip-inner { min-height:190px; } .reason-face { padding:15px 12px; } .reason-copy { font-size:.92rem; } #timelineSection { border-radius:22px; } .timeline-item { gap:10px; padding:14px 12px; } .timeline-number { flex-basis:42px;width:42px;height:42px;font-size:.78rem; } .timeline-marker { display:none; } }
+
+    /* Birthday cake finishing details: icing, pearls, topper and sparkles */
+    .cake-decor-wrap { position:relative; padding:18px 25px 0; }
+    .cake-topper { position:absolute; z-index:5; top:-2px; left:50%; transform:translateX(-50%); color:#f5d8be; font-family:var(--font-title); font-size:.72rem; letter-spacing:3px; text-shadow:0 0 12px rgba(255,215,160,.65); white-space:nowrap; }
+    .cake-topper span { color:#ffe7ad; }
+    .cake-sparkle { position:absolute; z-index:4; color:#ffe7ad; text-shadow:0 0 12px rgba(255,215,160,.85); animation:cakeTwinkle 2s ease-in-out infinite alternate; }
+    .cake-sparkle-one { top:26px; left:5px; font-size:1.35rem; } .cake-sparkle-two { top:65px; right:0; font-size:1.6rem; animation-delay:.5s; } .cake-sparkle-three { bottom:28px; left:0; font-size:1rem; animation-delay:1s; }
+    .cake-tier-top::before,.cake-tier-bottom::before { content:''; position:absolute; top:-3px; left:0; right:0; height:12px; border-radius:50%; background:linear-gradient(180deg,#f2dfbf,#d8b98a); box-shadow:0 3px 5px rgba(70,10,25,.2); }
+    .cake-tier-top::after { content:'♡  ✦  ♡'; position:absolute; top:16px; left:0; right:0; text-align:center; font-size:.8rem; color:#ffe9c9; letter-spacing:7px; }
+    .cake-tier-decor { position:absolute; z-index:3; left:50%; transform:translateX(-50%); display:flex; justify-content:space-around; align-items:center; pointer-events:none; }
+    .cake-decor-top { bottom:71px; width:128px; } .cake-decor-bottom { bottom:15px; width:170px; }
+    .cake-tier-decor i { font-style:normal; color:#ffe8c5; font-size:.8rem; text-shadow:0 1px 4px rgba(100,0,20,.45); }
+    .cake-plate { border:2px solid #f6d6a7; box-shadow:0 5px 20px rgba(0,0,0,.5),0 0 25px rgba(255,209,102,.35); }
+    @keyframes cakeTwinkle { from { opacity:.55; transform:scale(.85) rotate(-8deg); } to { opacity:1; transform:scale(1.15) rotate(8deg); } }
+    @media(max-width:600px) { .cake-decor-wrap { transform:scale(.94); } }
+
+  
+    /* Ressa premium dark-brown & champagne theme */
+    :root { --pink-soft:#e4c99d; --pink-medium:#c29a68; --pink-deep:#8c6745; --champagne-pink:#f2e3c9; --glow-pink:rgba(210,174,119,.32); --bg-card:rgba(32,23,15,.86); --bg-main:#100b07; }
+    body { background-color:#100b07; color:#f4ead9; }
+    .orb-1,.orb-2,.orb-3 { opacity:.16; filter:blur(2px); }
+    .hero-section { background:radial-gradient(ellipse at top,rgba(188,143,87,.16),transparent 65%); }
+    .hero-badge,.entrance-badge { color:#e4c99d; border-color:rgba(228,201,157,.5); }
+    .section-title,.hero-name { color:#f2dfbf; text-shadow:0 0 24px rgba(188,143,87,.18); }
+    .section-subtitle { color:#cdb99b; }
+    .letter-card,.secret-gift-box,.countdown-card,.constellation-box,.gauge-container,.wish-jar-wrapper { background:linear-gradient(145deg,rgba(49,35,23,.92),rgba(22,16,11,.96)); border-color:rgba(210,174,119,.35); }
+    .music-player-widget { background:rgba(25,18,12,.94); border:1px solid rgba(210,174,119,.4); }
+    .music-btn,.btn-entrance,.btn-final-surprise,.btn-fill-gauge,.btn-blow-candle { background:linear-gradient(135deg,#e4c99d,#b88a5a); color:#21160d; border-color:#e4c99d; }
+    .memory-card { border-color:rgba(210,174,119,.58); background:#21170f; box-shadow:0 12px 28px rgba(0,0,0,.3); }
+    .memory-card img { border-color:rgba(210,174,119,.4); }
+    .reason-front { background:radial-gradient(circle at 15% 15%,rgba(228,201,157,.12),transparent 38%),linear-gradient(145deg,#493321,#21160e); }
+    .reason-back { background:linear-gradient(145deg,#f2e3c9,#d9bd91); color:#3c2818; border-color:#e4c99d; }
+    .reason-copy { color:#3c2818; }
+    .reason-front-title,.reason-num { color:#f2dfbf; }
+    .gift-base { background:linear-gradient(135deg,#6b472c,#d9b67e 45%,#704a2b); border-color:#e4c99d; }
+    .gift-lid { background:linear-gradient(135deg,#b88a5a,#f2dfbf 48%,#8c6745); border-color:#f2dfbf; }
+    .gift-bow:before,.gift-bow:after { border-color:#8c6745; background:#c29a68; }
+    .gift-bow i { background:#f2dfbf; }
+    .dream-board-grid { width:min(920px,100%); margin:32px auto 0; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr)); gap:14px; }
+    .dream-card { display:flex; align-items:flex-start; gap:13px; padding:20px; border:1px solid rgba(210,174,119,.32); border-radius:18px; background:linear-gradient(145deg,rgba(58,41,26,.78),rgba(27,19,12,.94)); cursor:pointer; transition:transform .25s,border-color .25s,background .25s; }
+    .dream-card:hover { transform:translateY(-3px); border-color:rgba(228,201,157,.75); }
+    .dream-card input { position:absolute; opacity:0; pointer-events:none; }
+    .dream-check { flex:0 0 27px; width:27px; height:27px; display:grid; place-items:center; border:1px solid #c29a68; border-radius:8px; color:#e4c99d; }
+    .dream-card input:checked + .dream-check { background:#c29a68; color:#21160d; }
+    .dream-card input:checked ~ span strong { color:#e4c99d; }
+    .dream-card strong { display:block; color:#f2dfbf; margin-bottom:5px; font-family:var(--font-serif); font-size:1.15rem; }
+    .dream-card small { display:block; color:#cdb99b; line-height:1.6; }
+    #memories { padding-top:48px; padding-bottom:48px; }
+    .paper-sheet { background:repeating-linear-gradient(0deg,rgba(129,83,50,.045) 0,rgba(129,83,50,.045) 1px,transparent 1px,transparent 29px),linear-gradient(135deg,#f7ecd8,#e8d4b2 55%,#f5e7ce); }
+    .paper-sheet .letter-text { color:#493321; }
+    #grandEntranceModal { background:linear-gradient(135deg,#24180f 0%,#100b07 100%); }
+    .door-panel { background:linear-gradient(135deg,#4c321f,#1b120b); border-color:#c29a68; }
+    @media (max-width:600px) { .dream-card { padding:16px; } }
+
+  </style>
+</head>
+<body>
+
+  <!-- PARTICLE LAYERS -->
+  <div class="particle-layer" id="bgGlowLayer">
+    <div class="bg-glow-orb orb-1"></div>
+    <div class="bg-glow-orb orb-2"></div>
+    <div class="bg-glow-orb orb-3"></div>
+  </div>
+  <div class="particle-layer" id="ambientPetals"></div>
+  <div class="particle-layer" id="butterflyLayer"></div>
+  <div class="particle-layer" id="heartLayer"></div>
+  <div class="particle-layer" id="celebrationLayer"></div>
+
+  <!-- SVG GRADIENT DEFS -->
+  <svg width="0" height="0" style="position:absolute;">
+    <defs>
+      <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#d8b98a" />
+        <stop offset="50%" stop-color="#b88a5a" />
+        <stop offset="100%" stop-color="#8a6244" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <!-- GRAND ENTRANCE DOORS -->
+<div id="grandEntranceModal">
+
+  <div class="door-container">
+
+    <div class="door-panel door-left">
+      <div class="door-moulding"></div>
+      <div class="door-knob"></div>
+    </div>
+
+    <div class="door-panel door-right">
+      <div class="door-moulding"></div>
+      <div class="door-knob"></div>
+    </div>
+
+  </div>
+
+  <div class="entrance-center-content">
+
+    <div class="entrance-badge">
+      Special Gift For
+    </div>
+
+    <h1 class="entrance-title">
+      Ressa
+    </h1>
+
+    <p class="entrance-subtitle">
+      20 Oktober 2008
+    </p>
+
+    <button
+      class="btn-entrance"
+      onclick="openGrandEntrance()">
+      Buka Pintu ♡
+    </button>
+
+  </div>
+
+</div>
+
+  <!-- FLOATING AUDIO PLAYER -->
+  <audio id="bgMusic" src="musik.ogg" preload="auto" loop></audio>
+  <div class="music-player-widget">
+    <button class="music-btn" id="musicToggleBtn" onclick="toggleMusic()">▶</button>
+    <div class="music-info">
+      <span class="music-title">Semua Aku Dirayakan</span>
+      <span class="music-sub">Nadin Amizah · Special for Ressa</span>
+    </div>
+  </div>
+
+  <!-- MAIN EXPERIENCE WRAPPER -->
+  <div class="main-wrapper">
+
+    <!-- 1. HERO SECTION -->
+  <section class="hero-section" id="hero">
+    <div class="hero-badge">Special Birthday Celebration</div>
+    <h1 class="hero-name">Ressa</h1>
+    <div class="hero-date">20 Oktober 2008</div>
+  </section>
+
+  <div class="transition-zone"><div class="transition-vine"><div class="transition-flower"></div></div></div>
+
+    <!-- 2. MAIN SURAT UTAMA & 10 REASONS WHY -->
+    <section id="letter">
+      <h2 class="section-title">Untuk Ressa ♡</h2>
+<p class="section-subtitle">Surat ucapan tulus yang ditulis khusus di hari bahagiamu</p>
+      
+  <div class="letter-card letter-scroll-card">
+    <button class="scroll-letter-trigger" type="button" aria-expanded="false" aria-controls="mainLetterPaper" onclick="toggleMainLetter()">
+      <span class="scroll-icon">✉</span>
+      <span class="scroll-trigger-copy"><strong>Buka Surat Untuk Ressa</strong><small>Sentuh untuk membuka gulungan surat ♡</small></span>
+      <span class="scroll-trigger-arrow" id="letterArrow">⌄</span>
+    </button>
+    <div class="paper-roll" id="mainLetterPaper" aria-hidden="true">
+      <div class="paper-roll-edge paper-roll-top"></div>
+      <div class="paper-sheet">
+        <div class="letter-text">
+Happy birthday, Ressa! 🤎
+20 Oktober 2008 ✨
+
+Selamat ulang tahun yaa, sayang. Semoga di usia yang baru ini kamu selalu diberi kesehatan, kebahagiaan, dan banyak hal baik yang datang ke hidup kamu. Semoga semua yang sedang kamu usahakan bisa berjalan lancar dan satu per satu impian kamu bisa tercapai.
+
+Terima kasih sudah hadir di hidup aku dan membuat hari-hari biasa terasa lebih menyenangkan. Aku senang bisa mengenal kamu, mendengar cerita kamu, dan berbagi banyak hal kecil bersama kamu. Semoga kamu selalu punya alasan untuk tersenyum, bahkan di hari-hari yang terasa berat.
+
+Kalau suatu saat kamu merasa lelah atau ragu sama diri sendiri, ingat yaa kalau kamu sudah berusaha sejauh ini dan itu patut kamu banggakan. Kamu nggak harus selalu kuat setiap waktu. Pelan-pelan saja, nikmati prosesnya, dan jangan lupa memberi waktu untuk diri kamu sendiri.
+
+Aku berharap hubungan kita bisa terus dipenuhi hal-hal baik, saling memahami, saling mendukung, dan sama-sama belajar menjadi lebih baik. Semoga kamu selalu dikelilingi orang-orang yang tulus menyayangi kamu. Tetap jadi Ressa yang aku kenal, dengan semua hal sederhana yang membuat kamu istimewa.
+
+Sekali lagi, selamat ulang tahun yaa. Semoga tahun ini membawa banyak cerita indah, tawa, dan kenangan yang ingin kamu simpan lama-lama. I’m always rooting for you. 🤎✨</div>
+      </div>
+      <div class="paper-roll-edge paper-roll-bottom"></div>
+    </div>
+  </div>
+
+
+<h2 class="section-title" style="margin-top: 70px;">
+  10 Alasan Kenapa Ressa Spesial
+</h2>
+
+  <div class="reasons-grid flip-reasons">
+    <button class="reason-flip" type="button" aria-label="Buka alasan 1" aria-pressed="false" onclick="flipReason(this)">
+      <span class="reason-flip-inner">
+        <span class="reason-face reason-front"><span class="reason-num">01</span><span class="reason-front-title">Satu hal tentang Ressa</span><span class="reason-hint">Ketuk untuk membuka ✦</span></span>
+        <span class="reason-face reason-back"><span class="reason-num">01</span><span class="reason-copy">Senyummu selalu berhasil bikin hariku terasa lebih baik.</span><span class="reason-hint">Ketuk untuk menutup ↻</span></span>
+      </span>
+    </button>
+    <button class="reason-flip" type="button" aria-label="Buka alasan 2" aria-pressed="false" onclick="flipReason(this)">
+      <span class="reason-flip-inner">
+        <span class="reason-face reason-front"><span class="reason-num">02</span><span class="reason-front-title">Satu hal tentang Ressa</span><span class="reason-hint">Ketuk untuk membuka ✦</span></span>
+        <span class="reason-face reason-back"><span class="reason-num">02</span><span class="reason-copy">Hal sederhana terasa lebih menyenangkan kalau aku menjalaninya sama kamu.</span><span class="reason-hint">Ketuk untuk menutup ↻</span></span>
+      </span>
+    </button>
+    <button class="reason-flip" type="button" aria-label="Buka alasan 3" aria-pressed="false" onclick="flipReason(this)">
+      <span class="reason-flip-inner">
+        <span class="reason-face reason-front"><span class="reason-num">03</span><span class="reason-front-title">Satu hal tentang Ressa</span><span class="reason-hint">Ketuk untuk membuka ✦</span></span>
+        <span class="reason-face reason-back"><span class="reason-num">03</span><span class="reason-copy">Aku suka mendengar cerita-ceritamu, bahkan tentang hal kecil sekalipun.</span><span class="reason-hint">Ketuk untuk menutup ↻</span></span>
+      </span>
+    </button>
+    <button class="reason-flip" type="button" aria-label="Buka alasan 4" aria-pressed="false" onclick="flipReason(this)">
+      <span class="reason-flip-inner">
+        <span class="reason-face reason-front"><span class="reason-num">04</span><span class="reason-front-title">Satu hal tentang Ressa</span><span class="reason-hint">Ketuk untuk membuka ✦</span></span>
+        <span class="reason-face reason-back"><span class="reason-num">04</span><span class="reason-copy">Kamu punya sisi lucu yang selalu bisa bikin aku ketawa.</span><span class="reason-hint">Ketuk untuk menutup ↻</span></span>
+      </span>
+    </button>
+    <button class="reason-flip" type="button" aria-label="Buka alasan 5" aria-pressed="false" onclick="flipReason(this)">
+      <span class="reason-flip-inner">
+        <span class="reason-face reason-front"><span class="reason-num">05</span><span class="reason-front-title">Satu hal tentang Ressa</span><span class="reason-hint">Ketuk untuk membuka ✦</span></span>
+        <span class="reason-face reason-back"><span class="reason-num">05</span><span class="reason-copy">Kamu perhatian dengan caramu sendiri, dan itu berarti buatku.</span><span class="reason-hint">Ketuk untuk menutup ↻</span></span>
+      </span>
+    </button>
+    <button class="reason-flip" type="button" aria-label="Buka alasan 6" aria-pressed="false" onclick="flipReason(this)">
+      <span class="reason-flip-inner">
+        <span class="reason-face reason-front"><span class="reason-num">06</span><span class="reason-front-title">Satu hal tentang Ressa</span><span class="reason-hint">Ketuk untuk membuka ✦</span></span>
+        <span class="reason-face reason-back"><span class="reason-num">06</span><span class="reason-copy">Aku merasa nyaman saat bisa jadi diri sendiri di dekatmu.</span><span class="reason-hint">Ketuk untuk menutup ↻</span></span>
+      </span>
+    </button>
+    <button class="reason-flip" type="button" aria-label="Buka alasan 7" aria-pressed="false" onclick="flipReason(this)">
+      <span class="reason-flip-inner">
+        <span class="reason-face reason-front"><span class="reason-num">07</span><span class="reason-front-title">Satu hal tentang Ressa</span><span class="reason-hint">Ketuk untuk membuka ✦</span></span>
+        <span class="reason-face reason-back"><span class="reason-num">07</span><span class="reason-copy">Kehadiranmu sering jadi penyemangat saat hariku terasa melelahkan.</span><span class="reason-hint">Ketuk untuk menutup ↻</span></span>
+      </span>
+    </button>
+    <button class="reason-flip" type="button" aria-label="Buka alasan 8" aria-pressed="false" onclick="flipReason(this)">
+      <span class="reason-flip-inner">
+        <span class="reason-face reason-front"><span class="reason-num">08</span><span class="reason-front-title">Satu hal tentang Ressa</span><span class="reason-hint">Ketuk untuk membuka ✦</span></span>
+        <span class="reason-face reason-back"><span class="reason-num">08</span><span class="reason-copy">Banyak momen biasa terasa spesial karena ada kamu.</span><span class="reason-hint">Ketuk untuk menutup ↻</span></span>
+      </span>
+    </button>
+    <button class="reason-flip" type="button" aria-label="Buka alasan 9" aria-pressed="false" onclick="flipReason(this)">
+      <span class="reason-flip-inner">
+        <span class="reason-face reason-front"><span class="reason-num">09</span><span class="reason-front-title">Satu hal tentang Ressa</span><span class="reason-hint">Ketuk untuk membuka ✦</span></span>
+        <span class="reason-face reason-back"><span class="reason-num">09</span><span class="reason-copy">Kamu punya keunikan yang nggak bisa digantikan siapa pun.</span><span class="reason-hint">Ketuk untuk menutup ↻</span></span>
+      </span>
+    </button>
+    <button class="reason-flip" type="button" aria-label="Buka alasan 10" aria-pressed="false" onclick="flipReason(this)">
+      <span class="reason-flip-inner">
+        <span class="reason-face reason-front"><span class="reason-num">10</span><span class="reason-front-title">Satu hal tentang Ressa</span><span class="reason-hint">Ketuk untuk membuka ✦</span></span>
+        <span class="reason-face reason-back"><span class="reason-num">10</span><span class="reason-copy">Aku suka sisi manja dan ngambekmu, karena itu juga bagian dari dirimu yang aku sayang.</span><span class="reason-hint">Ketuk untuk menutup ↻</span></span>
+      </span>
+    </button>
+  </div>
+    </section>
+
+    <div class="transition-zone">
+  <div class="transition-vine">
+    <div class="transition-flower"></div>
+  </div>
+</div>
+
+<!-- 3. LOVE GARDEN -->
+<section id="loveGarden">
+
+  <h2 class="section-title">
+    A Little Note For You ✦
+  </h2>
+
+  <p class="section-subtitle">
+    Beberapa hal kecil yang semoga bikin hari Ressa lebih cerah
+  </p>
+
+  <div class="love-garden">
+
+    <div class="love-orbit"></div>
+    <div class="love-orbit-small"></div>
+
+    <div class="love-center" onclick="loveGardenClick(this)">
+  <div class="love-main-heart">♡</div>
+</div>
+
+    <div class="love-mini love-mini-1">♡</div>
+    <div class="love-mini love-mini-2">♡</div>
+    <div class="love-mini love-mini-3">♡</div>
+    <div class="love-mini love-mini-4">♡</div>
+
+    <div class="rising-heart rising-heart-1">♡</div>
+    <div class="rising-heart rising-heart-2">♡</div>
+    <div class="rising-heart rising-heart-3">♡</div>
+    <div class="rising-heart rising-heart-4">♡</div>
+
+    <div class="love-star love-star-1"></div>
+    <div class="love-star love-star-2"></div>
+    <div class="love-star love-star-3"></div>
+    <div class="love-star love-star-4"></div>
+
+    <div class="love-message">
+
+      <div class="love-message-title">
+        Untuk Ressa ♡
+      </div>
+
+      <div class="love-message-text">
+        Semoga hari-harimu selalu dipenuhi hal-hal kecil
+        yang membuatmu tersenyum. Ketuk dibawah ini♡
+      </div>
+
+    </div>
+
+    <div class="love-notes">
+
+  <div class="love-note" onclick="showLoveMessage('always')">
+    ♡ Always Smile
+  </div>
+
+  <div class="love-note" onclick="showLoveMessage('kind')">
+    ✦ Stay Kind
+  </div>
+
+  <div class="love-note" onclick="showLoveMessage('shine')">
+    ♡ Keep Shining
+  </div>
+
+</div>
+
+<div class="love-pop-message" id="lovePopMessage"></div>
+
+  </div>
+
+</section>
+
+<div class="transition-zone">
+  <div class="transition-vine">
+    <div class="transition-flower"></div>
+  </div>
+</div>
+
+
+    <!-- 4. BIRTHDAY CAKE SECTION -->
+    <section id="cakeSection">
+      <h2 class="section-title">Make a Wish</h2>
+      <p class="section-subtitle">Tutup matamu, panjatkan doa, lalu tiup lilinnya, Ressa ♡</p>
+
+      <div class="cake-section-container">
+        <div class="cake-decor-wrap"><div class="cake-sparkle cake-sparkle-one">✦</div><div class="cake-sparkle cake-sparkle-two">✧</div><div class="cake-sparkle cake-sparkle-three">✦</div><div class="birthday-cake" id="birthdayCake" aria-label="Kue ulang tahun berhias">
+          <div class="cake-topper"> <span>✦</span></div><div class="cake-candle">
+            <div class="candle-flame" id="cakeFlame"></div>
+            <div class="smoke-curl" id="smokeCurl"></div>
+          </div>
+          <div class="cake-tier cake-tier-top"></div>
+          <div class="cake-tier cake-tier-bottom"></div>
+          <div class="cake-tier-decor cake-decor-top"><i>✦</i><i>♡</i><i>✦</i></div><div class="cake-tier-decor cake-decor-bottom"><i>✧</i><i>✦</i><i>♡</i><i>✦</i><i>✧</i></div><div class="cake-plate"></div>
+        </div></div>
+
+        <button class="btn-blow-candle" id="blowBtn" onclick="blowOutCandle()">Tiup Lilinnya ♡</button>
+        <div class="wish-made-text" id="wishText" style="display: none;">Harapan telah terpanjat ♡</div>
+      </div>
+    </section>
+
+    <div class="transition-zone"><div class="transition-vine"><div class="transition-flower"></div></div></div>
+
+    <!-- 5. MEMORIES GALLERY -->
+<section id="memories">
+  <h2 class="section-title">Our Little Memories</h2>
+  <p class="section-subtitle">Sepuluh potongan kecil tentang kamu dan hal-hal manis yang ingin disimpan 🤎</p>
+  <div class="memory-grid">
+    <div class="memory-card" onclick="openLightbox('t1.jpeg', 'Satu senyum yang selalu ingin aku ingat')"><img src="t1.jpeg" alt="Foto Ressa 1" loading="lazy" onerror="this.closest('.memory-card').style.display='none'"></div>
+    <div class="memory-card" onclick="openLightbox('t2.jpeg', 'Momen kecil yang terasa spesial')"><img src="t2.jpeg" alt="Foto Ressa 2" loading="lazy" onerror="this.closest('.memory-card').style.display='none'"></div>
+    <div class="memory-card" onclick="openLightbox('t3.jpeg', 'Kamu dengan pesona sederhana kamu')"><img src="t3.jpeg" alt="Foto Ressa 3" loading="lazy" onerror="this.closest('.memory-card').style.display='none'"></div>
+    <div class="memory-card" onclick="openLightbox('t4.jpeg', 'Salah satu foto favoritku')"><img src="t4.jpeg" alt="Foto Ressa 4" loading="lazy" onerror="this.closest('.memory-card').style.display='none'"></div>
+    <div class="memory-card" onclick="openLightbox('t6.jpeg', 'Hari biasa yang jadi lebih berkesan')"><img src="t6.jpeg" alt="Foto Ressa 6" loading="lazy" onerror="this.closest('.memory-card').style.display='none'"></div>
+    <div class="memory-card" onclick="openLightbox('t7.jpeg', 'Simpan senyum ini baik-baik')"><img src="t7.jpeg" alt="Foto Ressa 7" loading="lazy" onerror="this.closest('.memory-card').style.display='none'"></div>
+    <div class="memory-card" onclick="openLightbox('t8.jpeg', 'Satu lagi alasan untuk tersenyum')"><img src="t8.jpeg" alt="Foto Ressa 8" loading="lazy" onerror="this.closest('.memory-card').style.display='none'"></div>
+    <div class="memory-card" onclick="openLightbox('t9.jpeg', 'Momen yang bikin kangen')"><img src="t9.jpeg" alt="Foto Ressa 9" loading="lazy" onerror="this.closest('.memory-card').style.display='none'"></div>
+    <div class="memory-card" onclick="openLightbox('t10.jpeg', 'Untuk lebih banyak kenangan indah')"><img src="t10.jpeg" alt="Foto Ressa 10" loading="lazy" onerror="this.closest('.memory-card').style.display='none'"></div>
+  </div>
+</section>
+
+    <div class="transition-zone"><div class="transition-vine"><div class="transition-flower"></div></div></div>
+
+<!-- 6. WISH JAR -->
+
+    <section id="wishJarSection">
+      <h2 class="section-title">Toples Harapan</h2>
+      <p class="section-subtitle">Doa-doa baik untuk Ressa</p>
+
+      <div class="wish-jar-wrapper">
+        <svg class="wish-jar-svg" viewBox="0 0 100 140" onclick="popWishFromJar()">
+          <rect x="25" y="10" width="50" height="12" rx="4" fill="#d8b98a" />
+          <path d="M20 25 C20 25 15 40 15 120 C15 130 25 135 50 135 C75 135 85 130 85 120 C85 40 80 25 80 25 Z" fill="rgba(216,185,138,0.18)" stroke="#d8b98a" stroke-width="2"/>
+          <circle cx="40" cy="80" r="5" fill="#b88a5a"/>
+          <circle cx="60" cy="95" r="4" fill="#f2e3c9"/>
+          <circle cx="48" cy="110" r="6" fill="#d8b98a"/>
+        </svg>
+        <div id="jarWishOutput" style="margin-top:18px; font-family: var(--font-serif); font-size: 1.15rem; color: var(--pink-soft); min-height: 45px;">Ketuk toples untuk mengambil doa ♡</div>
+      </div>
+    </section>
+
+    <div class="transition-zone"><div class="transition-vine"><div class="transition-flower"></div></div></div>
+
+    <!-- DREAM BOARD -->
+    <section id="dreamBoardSection">
+      <h2 class="section-title">Ressa’s Dream Board</h2>
+      <p class="section-subtitle">Semoga satu per satu hal baik ini bisa kamu wujudkan. Centang wishlist yang ingin kamu capai ✨</p>
+      <div class="dream-board-grid">
+        <label class="dream-card"><input type="checkbox"><span class="dream-check">✧</span><span><strong>Explore tempat baru</strong><small>Mengunjungi tempat yang sudah lama ingin kamu datangi.</small></span></label>
+        <label class="dream-card"><input type="checkbox"><span class="dream-check">✧</span><span><strong>Menggapai impianmu</strong><small>Terus melangkah menuju hal yang kamu cita-citakan.</small></span></label>
+        <label class="dream-card"><input type="checkbox"><span class="dream-check">✧</span><span><strong>Mencoba pengalaman baru</strong><small>Mengumpulkan cerita dan kenangan yang menyenangkan.</small></span></label>
+        <label class="dream-card"><input type="checkbox"><span class="dream-check">✧</span><span><strong>Membahagiakan diri sendiri</strong><small>Memberi waktu untuk istirahat dan melakukan hal yang kamu suka.</small></span></label>
+        <label class="dream-card"><input type="checkbox"><span class="dream-check">✧</span><span><strong>Membuat lebih banyak kenangan bersama</strong><small>Menikmati momen sederhana dan menyimpannya sebagai cerita indah.</small></span></label>
+      </div>
+    </section>
+
+    <!-- 7. LOVE SURPRISE SECTION -->
+    <section id="loveSurprise">
+      <h2 class="section-title">Sentuhan Cinta</h2>
+      <p class="section-subtitle">Ketuk hati ini 10x untuk kejutan kecil</p>
+
+      <div class="love-surprise-container">
+        <div class="interactive-heart-trigger" onclick="triggerLoveSurprise(this)">
+          <svg class="giant-heart-svg" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
+        <div id="heartCounterText" style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--pink-soft);">Ketukan: 0</div>
+      </div>
+    </section>
+
+    <div class="transition-zone"><div class="transition-vine"><div class="transition-flower"></div></div></div>
+
+    <!-- 8. MIDNIGHT CONSTELLATION -->
+    <section id="constellation">
+      <h2 class="section-title">Rasi Bintang Ressa</h2>
+      <p class="section-subtitle">Ketuk di dalam kotak untuk merangkai bintang-bintang indah</p>
+
+      <div class="constellation-box" id="constellationBox" onclick="addStar(event)"></div>
+    </section>
+
+    <!-- 9. AFFECTION GAUGE -->
+    <section id="affection">
+      <h2 class="section-title">Meteran Kedekatan</h2>
+      <p class="section-subtitle">Tekan tombol untuk mengisi meteran kedekatan</p>
+
+      <div class="gauge-container">
+        <div class="gauge-bar-outer">
+          <div class="gauge-bar-inner" id="gaugeInner"></div>
+        </div>
+        <button class="btn-fill-gauge" onclick="fillAffection()">Kirim Semangat ♡</button>
+      </div>
+    </section>
+
+    <!-- 10. KADO INTERAKTIF -->
+    <section id="secretGiftSection">
+      <div class="secret-gift-box">
+        <h2 class="section-title">Ada Kado Buat Ressa! 🎁</h2>
+        <p class="section-subtitle">Kadonya masih malu-malu nih... pencet kadonya buat buka yaa ✨</p>
+        <div class="gift-opening-stage">
+          <button class="interactive-gift" id="interactiveGift" onclick="openBirthdayGift()" aria-label="Pencet untuk membuka kado">
+            <span class="gift-spark one">🌸</span><span class="gift-spark two">✨</span><span class="gift-spark three">🌷</span>
+            <span class="gift-bow"><i></i></span><span class="gift-lid"></span><span class="gift-base"></span>
+          </button>
+          <div class="gift-open-hint" id="giftOpenHint">👆 Pencet kadonya, ya!</div>
+        </div>
+        <div class="gift-surprise-content" id="giftSurpriseContent">
+          <div class="gift-flower-burst">🌷 🌸 💐 🌼 🌺</div>
+          <h3 class="section-title" style="font-size:clamp(1.5rem,4vw,2.2rem);">Surprise buat kamu! ♡</h3>
+          <p class="gift-note">Bunga kecil dan beberapa kenangan untuk kamu. Semoga bisa bikin kamu senyum yaa! 🤎</p>
+          <div class="gift-photo-grid">
+            <img src="t6.jpeg" alt="Foto kenangan Ressa" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <button class="btn-entrance" onclick="openSecretModal()">Buka Pesan Rahasia ♡</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. FINAL GRAND SURPRISE -->
+    <section class="final-surprise-section">
+      <div style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--pink-soft); margin-bottom: 20px;">
+        Satu perayaan puncak terakhir...
+      </div>
+      <button class="btn-final-surprise" onclick="triggerFinalGrandSurprise()">
+        Rayakan Bersama ♡
+      </button>
+
+      <div id="finalHeading" class="final-birthday-heading" style="display:none;">
+        Selamat Ulang Tahun, Ressa ♡
+      </div>
+    </section>
+
+  </div>
+
+  <!-- LIGHTBOX & SECRET MODALS -->
+  <div id="lightboxModal" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <img id="lightboxImg" class="lightbox-img" src="" alt="Enlarged Memory">
+      <div id="lightboxCap" style="margin-top:18px; font-family: var(--font-serif); font-size: 1.3rem; color: var(--pink-soft);"></div>
+    </div>
+  </div>
+
+  <div id="secretModal">
+    <div class="secret-content">
+      <h2 style="font-family: var(--font-title); color: var(--pink-soft); margin-bottom: 18px; font-size: 1.8rem;">Secret Gift Unlocked!</h2>
+      <p style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--champagne-pink); line-height: 1.8; white-space: pre-line;">
+Yeay, kamu berhasil membuka hadiah rahasia ini! 🤎 Aku cuma mau bilang kalau aku bersyukur bisa punya kamu di hidupku. Terima kasih sudah menjadi bagian dari hari-hariku, untuk tawa, cerita, dan hal-hal sederhana yang terasa spesial saat dijalani bareng kamu. Semoga hadiah kecil ini bisa bikin kamu senyum. Happy birthday, Ressa! ✨
+</p>
+      <button class="btn-blow-candle" style="margin-top:28px;" onclick="closeSecretModal()">Tutup ♡</button>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT SYSTEM -->
+  <script>
+    /* --------------------------------------------------------------------------
+       1. SPARKLE CURSOR TRAIL EFFECT
+       -------------------------------------------------------------------------- */
+    window.addEventListener('mousemove', (e) => {
+      if (Math.random() < 0.25) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle-trail';
+        sparkle.style.left = `${e.clientX}px`;
+        sparkle.style.top = `${e.clientY}px`;
+        document.body.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 800);
+      }
+    });
+
+    /* --------------------------------------------------------------------------
+       2. AMBIENT PARTICLES (PETALS, BUTTERFLIES, HEARTS)
+       -------------------------------------------------------------------------- */
+    const ambientPetalsLayer = document.getElementById('ambientPetals');
+    const butterflyLayer = document.getElementById('butterflyLayer');
+    const heartLayer = document.getElementById('heartLayer');
+    const celebrationLayer = document.getElementById('celebrationLayer');
+
+    function initAmbientPetals() {
+      const count = window.innerWidth < 768 ? 25 : 45;
+      for (let i = 0; i < count; i++) {
+        spawnPetal(ambientPetalsLayer, false);
+      }
+    }
+
+    function spawnPetal(container, isBurst = false) {
+      const petal = document.createElement('div');
+      petal.className = 'falling-petal';
+      
+      const size = Math.random() * 14 + 10;
+      const left = Math.random() * 100;
+      const duration = Math.random() * 8 + (isBurst ? 3 : 7);
+      const delay = Math.random() * 5;
+      
+      const colors = ['#e4c99d', '#c29a68', '#f2e3c9', '#8c6745'];
+      const color = colors[Math.floor(Math.random() * colors.length)];
+
+      petal.innerHTML = `
+        <svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="${color}" opacity="${Math.random() * 0.5 + 0.4}">
+          <path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM12 20C7.6 20 4 16.4 4 12C4 7.6 7.6 4 12 4C16.4 4 20 7.6 20 12C20 16.4 16.4 20 12 20Z"/>
+        </svg>
+      `;
+      
+      petal.style.left = `${left}vw`;
+      petal.style.animationDuration = `${duration}s`;
+      petal.style.animationDelay = `${delay}s`;
+      
+      container.appendChild(petal);
+
+      if (isBurst) {
+        setTimeout(() => petal.remove(), (duration + delay) * 1000);
+      }
+    }
+
+    function spawnButterfly(x, y) {
+      const b = document.createElement('div');
+      b.className = 'butterfly-svg';
+      b.style.left = `${x || Math.random() * 80 + 10}vw`;
+      b.style.top = `${y || Math.random() * 80 + 10}vh`;
+
+      b.innerHTML = `
+        <svg viewBox="0 0 50 50">
+          <g class="wing">
+            <path d="M25 25 C10 0 0 10 5 25 C0 40 10 50 25 25 Z" fill="#e4c99d" opacity="0.85"/>
+            <path d="M25 25 C40 0 50 10 45 25 C50 40 40 50 25 25 Z" fill="#c29a68" opacity="0.85"/>
+          </g>
+        </svg>
+      `;
+      butterflyLayer.appendChild(b);
+      setTimeout(() => b.remove(), 16000);
+    }
+
+    function initAmbientButterflies() {
+      const count = window.innerWidth < 768 ? 3 : 6;
+      for (let i = 0; i < count; i++) {
+        spawnButterfly();
+      }
+      setInterval(() => {
+        if (butterflyLayer.children.length < 8) spawnButterfly();
+      }, 6000);
+    }
+
+    /* --------------------------------------------------------------------------
+       3. GRAND ENTRANCE & AUDIO SYSTEM
+       -------------------------------------------------------------------------- */
+    const grandEntranceModal = document.getElementById('grandEntranceModal');
+    const bgMusic = document.getElementById('bgMusic');
+    const musicToggleBtn = document.getElementById('musicToggleBtn');
+
+    // Putar lagu pilihan Ressa dari awal; ulangi setelah lagu selesai.
+    async function playBirthdayMusic(fromStart = false) {
+      if (fromStart) bgMusic.currentTime = 0;
+
+      try {
+        await bgMusic.play();
+        musicToggleBtn.textContent = '❚❚';
+      } catch (error) {
+        musicToggleBtn.textContent = '▶';
+        console.log('Musik belum bisa diputar. Pastikan file lagu.ogg tersedia.');
+      }
+    }
+
+    function openGrandEntrance() {
+      grandEntranceModal.classList.add('open');
+      playBirthdayMusic(true);
+
+      triggerFullCelebrationStorm(130);
+
+      setTimeout(() => {
+        grandEntranceModal.style.display = 'none';
+      }, 1600);
+    }
+
+    function toggleMusic() {
+      if (bgMusic.paused) {
+        playBirthdayMusic(false);
+      } else {
+        bgMusic.pause();
+        musicToggleBtn.textContent = '▶';
+      }
+    }
+
+    /* --------------------------------------------------------------------------
+       4. CAKE & BLOW CANDLE INTERACTION
+       -------------------------------------------------------------------------- */
+    let candleBlown = false;
+
+    function blowOutCandle() {
+      if (candleBlown) return;
+      candleBlown = true;
+
+      const flame = document.getElementById('cakeFlame');
+      const smoke = document.getElementById('smokeCurl');
+      const blowBtn = document.getElementById('blowBtn');
+      const wishText = document.getElementById('wishText');
+
+      flame.style.transform = 'translateX(-50%) scale(0.3)';
+      
+      setTimeout(() => {
+        flame.classList.add('out');
+        smoke.style.opacity = '1';
+        
+        setTimeout(() => {
+          triggerFullCelebrationStorm(160);
+
+          blowBtn.style.display = 'none';
+          wishText.style.display = 'block';
+        }, 500);
+
+      }, 400);
+    }
+
+    /* --------------------------------------------------------------------------
+       5. CELEBRATION STORM SYSTEM
+       -------------------------------------------------------------------------- */
+    function triggerFullCelebrationStorm(amount = 100) {
+      for (let i = 0; i < amount; i++) {
+        spawnPetal(celebrationLayer, true);
+      }
+
+      for (let j = 0; j < 14; j++) {
+        spawnButterfly(Math.random() * 90 + 5, Math.random() * 90 + 5);
+      }
+
+      for (let h = 0; h < 30; h++) {
+        setTimeout(() => {
+          const heart = document.createElement('div');
+          heart.className = 'floating-heart-svg';
+          heart.style.left = `${Math.random() * 90 + 5}vw`;
+          heart.style.bottom = '10vh';
+          heart.innerHTML = `
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="url(#heartGradient)">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          `;
+          heartLayer.appendChild(heart);
+          setTimeout(() => heart.remove(), 5000);
+        }, h * 110);
+      }
+    }
+
+    /* --------------------------------------------------------------------------
+       6. MEMORIES LIGHTBOX
+       -------------------------------------------------------------------------- */
+    function openLightbox(src, caption) {
+      const modal = document.getElementById('lightboxModal');
+      const img = document.getElementById('lightboxImg');
+      const cap = document.getElementById('lightboxCap');
+
+      img.src = src;
+      cap.textContent = caption;
+      modal.classList.add('active');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightboxModal').classList.remove('active');
+    }
+
+    /* --------------------------------------------------------------------------
+       7. LOVE SURPRISE & COUNTER
+       -------------------------------------------------------------------------- */
+    let loveTaps = 0;
+    function triggerLoveSurprise(el) {
+      loveTaps++;
+      document.getElementById('heartCounterText').textContent = `Ketukan: ${loveTaps}`;
+      el.style.transform = `scale(${1 + loveTaps * 0.08})`;
+
+      if (loveTaps >= 10) {
+        triggerFullCelebrationStorm(150);
+        loveTaps = 0;
+        setTimeout(() => el.style.transform = 'scale(1)', 1000);
+      }
+    }
+
+    /* --------------------------------------------------------------------------
+       8. MIDNIGHT CONSTELLATION
+       -------------------------------------------------------------------------- */
+    let lastStar = null;
+    function addStar(e) {
+      const box = document.getElementById('constellationBox');
+      const rect = box.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const star = document.createElement('div');
+      star.className = 'star-point';
+      star.style.left = `${x - 3.5}px`;
+      star.style.top = `${y - 3.5}px`;
+      box.appendChild(star);
+
+      if (lastStar) {
+        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg.style.position = "absolute";
+        svg.style.top = "0";
+        svg.style.left = "0";
+        svg.style.width = "100%";
+        svg.style.height = "100%";
+        svg.style.pointerEvents = "none";
+
+        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        line.setAttribute("x1", lastStar.x);
+        line.setAttribute("y1", lastStar.y);
+        line.setAttribute("x2", x);
+        line.setAttribute("y2", y);
+        line.setAttribute("stroke", "rgba(194, 154, 104, 0.5)");
+        line.setAttribute("stroke-width", "1.5");
+
+        svg.appendChild(line);
+        box.appendChild(svg);
+      }
+
+      lastStar = { x, y };
+    }
+
+    /* --------------------------------------------------------------------------
+       9. WISH JAR & AFFECTION
+       -------------------------------------------------------------------------- */
+const wishes = [
+  'Semoga kamu selalu sehat, bahagia, dan dikelilingi hal-hal baik. 🤎',
+  'Semoga semua impian yang sedang kamu usahakan bisa tercapai.',
+  'Semoga langkah kamu selalu dimudahkan dan diberi banyak kesempatan baik.',
+  'Semoga kamu selalu dikelilingi orang-orang yang tulus menyayangimu.',
+  'Semoga kamu punya keberanian untuk mencoba hal baru dan percaya pada diri sendiri.',
+  'Semoga hari-harimu dipenuhi alasan untuk tersenyum.',
+  'Semoga kamu selalu diberi ketenangan saat menghadapi hal yang sulit.',
+  'Semoga semua doa baik yang kamu simpan satu per satu menjadi nyata.'
+];
+
+    function popWishFromJar() {
+      const output = document.getElementById('jarWishOutput');
+      const randomWish = wishes[Math.floor(Math.random() * wishes.length)];
+      output.textContent = randomWish;
+      output.style.animation = 'none';
+      output.offsetHeight;
+      output.style.animation = 'fadeInWish 0.8s ease forwards';
+    }
+
+    let affectionVal = 20;
+    function fillAffection() {
+      affectionVal = Math.min(100, affectionVal + 20);
+      document.getElementById('gaugeInner').style.width = `${affectionVal}%`;
+      if (affectionVal === 100) {
+        triggerFullCelebrationStorm(100);
+      }
+    }
+
+
+    function openBirthdayGift() {
+      const gift = document.getElementById('interactiveGift');
+      const surprise = document.getElementById('giftSurpriseContent');
+      const hint = document.getElementById('giftOpenHint');
+      if (!gift || !surprise) return;
+      if (gift.classList.contains('opened')) {
+        gift.classList.remove('opened');
+        surprise.classList.remove('show');
+        hint.textContent = '👆 Pencet kadonya, Ressa!';
+        return;
+      }
+      gift.classList.add('opened');
+      hint.textContent = '🎉 Yeay, kadonya kebuka!';
+      window.setTimeout(() => {
+        surprise.classList.add('show');
+        surprise.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 480);
+      if (typeof triggerFullCelebrationStorm === 'function') triggerFullCelebrationStorm(55);
+    }
+
+    /* --------------------------------------------------------------------------
+       10. SECRET MODAL
+       -------------------------------------------------------------------------- */
+    function openSecretModal() {
+      document.getElementById('secretModal').classList.add('active');
+      triggerFullCelebrationStorm(70);
+    }
+
+    function closeSecretModal() {
+      document.getElementById('secretModal').classList.remove('active');
+    }
+
+    /* --------------------------------------------------------------------------
+       11. FINAL GRAND SURPRISE
+       -------------------------------------------------------------------------- */
+    function triggerFinalGrandSurprise() {
+      triggerFullCelebrationStorm(220);
+      document.getElementById('finalHeading').style.display = 'block';
+      document.getElementById('finalHeading').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    /* --------------------------------------------------------------------------
+       INITIALIZATION
+       -------------------------------------------------------------------------- */
+    window.addEventListener('DOMContentLoaded', () => {
+      initAmbientPetals();
+      initAmbientButterflies();
+    });
+
+    function showLoveMessage(type) {
+
+  const message = document.getElementById('lovePopMessage');
+
+  const messages = {
+    always:
+      'Jangan lupa senyum yaa, karena senyum Ressa selalu manis ♡',
+
+    kind:
+      'Tetap jadi Ressa yang baik dan sabar yaa ✦',
+
+    shine:
+      'Terus berkembang dan jadi versi terbaik dari Ressa ♡'
+  };
+
+  message.textContent = messages[type];
+
+  message.classList.remove('show');
+
+  setTimeout(() => {
+    message.classList.add('show');
+  }, 50);
+}
+
+
+function loveGardenClick(element) {
+
+  element.classList.remove('love-clicked');
+
+  void element.offsetWidth;
+
+  element.classList.add('love-clicked');
+
+  createLoveBurst();
+}
+
+
+function createLoveBurst() {
+
+  const symbols = ['♡', '♥', '✦', '♡', '✧'];
+
+  for (let i = 0; i < 16; i++) {
+
+    const heart = document.createElement('div');
+
+    heart.className = 'click-heart';
+
+    heart.textContent =
+      symbols[Math.floor(Math.random() * symbols.length)];
+
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+
+    heart.style.left = centerX + 'px';
+    heart.style.top = centerY + 'px';
+
+    const angle =
+      Math.random() * Math.PI * 2;
+
+    const distance =
+      100 + Math.random() * 220;
+
+    const moveX =
+      Math.cos(angle) * distance;
+
+    const moveY =
+      Math.sin(angle) * distance;
+
+    heart.style.setProperty(
+      '--move-x',
+      moveX + 'px'
+    );
+
+    heart.style.setProperty(
+      '--move-y',
+      moveY + 'px'
+    );
+
+    heart.style.animationDelay =
+      (Math.random() * 0.2) + 's';
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 1800);
+  }
+}
+function toggleMainLetter() {
+      const paper = document.getElementById('mainLetterPaper');
+      const button = document.querySelector('.scroll-letter-trigger');
+      const isOpen = paper.classList.toggle('is-open');
+      button.setAttribute('aria-expanded', String(isOpen));
+      paper.setAttribute('aria-hidden', String(!isOpen));
+      document.getElementById('letterArrow').textContent = isOpen ? '⌃' : '⌄';
+    }
+
+
+
+    // Membuka dan menutup flip card pada bagian 10 alasan untuk Ressa.
+    function flipReason(card) {
+      const isFlipped = card.classList.toggle('is-flipped');
+      card.setAttribute('aria-pressed', String(isFlipped));
+      const number = card.querySelector('.reason-num')?.textContent?.trim() || '';
+      card.setAttribute('aria-label', (isFlipped ? 'Tutup alasan ' : 'Buka alasan ') + number);
+    }
+
+  </script>
+</body>
+</html>
